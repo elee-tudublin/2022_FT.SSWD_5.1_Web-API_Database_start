@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+// Data Model for category
+model category {
+  // The primary key is annotated by @id
+  // @default(autoincrement) generates unique id values on insert by default
+  id                   Int  @id @default(autoincrement())
+  category_name        String
+
+  // Description is optional (String? is nullable)
+  category_description String?
+
+  // a category contains many products
+  product              product[]
+}
+
+// Data Model for product
+model product {
+  id                  Int @id @default(autoincrement())
+  category_id         Int
+  // @db.VarChar(255) defines the database datatype and max length
+  product_name        String
+  product_description String
+  // @default(0) sets a default value
+  product_stock       Int    @default(0)
+  // default 0, a decimal number 
+  product_price       Float  @default(0)
+
+  // A product can be in a category (? indicates that this value can be null)
+  // @relation sets up the foreign key - category_id is the id of the category this product belos to
+  // onDelete and onUpdate define what happens if the category a product belongs to is updated or deleted.
+  category            category? @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

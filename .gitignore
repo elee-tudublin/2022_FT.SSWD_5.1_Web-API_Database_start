@@ -1,0 +1,11 @@
+node_modules/*
+bin/*.dll
+obj/*
+*.sln
+*.log
+config/Development.json
+config/Production.json
+*.docx
+.env
+.env.*
+!.env.example
