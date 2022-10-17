@@ -6,8 +6,9 @@ Enda Lee 2022
 
 1. Download the start site from this repository
 2. Open in VS Code
-3. In a terminal run `npm install`
-4. Start the application using `npm run dev`
+3. Copy **`.env.example`** to **`.env`**
+4. In a terminal run `npm install`
+5. Start the application using `npm run dev`
 
 
 
@@ -158,7 +159,7 @@ module.exports = {
 
 ### 4. Test the application
 
-Opening http://localhost:5000/category in a web browser should load the category data.
+Opening http://localhost:5001/category in a web browser should load the category data.
 
 ![load categories](./media/test_cats.png)
 
@@ -176,7 +177,7 @@ Next the product `controller` `service` and `data access` will be modified so th
 
 Open `productController.js` and add a new endpoint to handle the request. 
 
-Requests will include the id in the form http://localhost:3000/product/3
+Requests will include the id in the form http://localhost:5173/product/3
 
 This is a little different from previous examples where parameters where includes in  `req.query`. This time we will use `req.params`. The main difference is that `params` separated by  `/` instead o `?` and `&`.
 
