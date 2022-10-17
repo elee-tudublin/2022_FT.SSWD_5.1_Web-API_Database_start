@@ -6,8 +6,9 @@ Enda Lee 2022
 
 1. Download the start site from this repository
 2. Open in VS Code
-3. In a terminal run `npm install`
-4. Start the application using `npm run dev`
+3. Copy **`.env.example`** to **`.env`**
+4. In a terminal run `npm install`
+5. Start the application using `npm run dev`
 
 
 
