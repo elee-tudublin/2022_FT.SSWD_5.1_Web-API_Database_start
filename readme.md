@@ -56,7 +56,7 @@ const productService = require("../services/categoryService.js");
 router.get('/', async(req, res) => {
 
     // Get result from the category service
-    const result = await productService.getCategories()
+    const result = await categoryService.getCategories()
 
     // Send a  response
     res.json(result);
@@ -90,7 +90,7 @@ const productData = require('../dataAccess/categoryData');
 async function getCategories() {
     
     // call data access to get all categories
-    const categories = await productData.getCategories();
+    const categories = await categoryData.getCategories();
   
     // return categories
     return categories;
@@ -152,7 +152,7 @@ module.exports = {
 
 ### 4. Test the application
 
-Opening http://localhost:5000/category in a web browser should load the category data.
+Opening http://localhost:5001/category in a web browser should load the category data.
 
 ![load categories](./media/test_cats.png)
 
@@ -170,7 +170,7 @@ Next the product `controller` `service` and `data access` will be modified so th
 
 Open `productController.js` and add a new endpoint to handle the request. 
 
-Requests will include the id in the form http://localhost:3000/product/3
+Requests will include the id in the form http://localhost:5173/product/3
 
 This is a little different from previous examples where parameters where includes in  `req.query`. This time we will use `req.params`. The main difference is that `params` separated by  `/` instead o `?` and `&`.
 
