@@ -27,6 +27,12 @@ As a reminder, the diagrams show the flow of data through the API and also the d
 
 
 
+## Environment Variables
+
+Before starting, it is important to copy the **`.env.example `** file to **`.env`**. This file contains the database URL which is required by Prisma
+
+
+
 ## Getting `categories` from the database
 
 Retrieving `categories` from the database is a very similar process as getting `products`. We will respect the idea of keeping functionality in the correct layer.
@@ -50,13 +56,13 @@ The `categoryController` will contain `endpoints` to handle these requests. Add 
 const router = require('express').Router();
 
 // Import the category service
-const productService = require("../services/categoryService.js");
+const categoryService = require("../services/categoryService.js");
 
 // This endpoint will return all category data from the database
 router.get('/', async(req, res) => {
 
     // Get result from the category service
-    const result = await productService.getCategories()
+    const result = await categoryService.getCategories()
 
     // Send a  response
     res.json(result);
@@ -83,14 +89,14 @@ Add **`categoryService.js`** to the `services` folder.
 
 // Import dependencies
 // DataAccess
-const productData = require('../dataAccess/categoryData');
+const categoryData = require('../dataAccess/categoryData.js');
 
 // Function to get all categories
 //
 async function getCategories() {
     
     // call data access to get all categories
-    const categories = await productData.getCategories();
+    const categories = await categoryData.getCategories();
   
     // return categories
     return categories;
