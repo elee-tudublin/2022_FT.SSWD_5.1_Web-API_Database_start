@@ -50,7 +50,7 @@ The `categoryController` will contain `endpoints` to handle these requests. Add 
 const router = require('express').Router();
 
 // Import the category service
-const productService = require("../services/categoryService.js");
+const categoryService = require("../services/categoryService.js");
 
 // This endpoint will return all category data from the database
 router.get('/', async(req, res) => {
